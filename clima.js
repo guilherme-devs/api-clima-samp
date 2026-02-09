@@ -15,7 +15,7 @@ const CLOUD_MAP = {
 
 app.get('/weather-sync', async (req, res) => {
   try {
-    const response = await axios.get('https://api.hgbrasil.com/weather?key=73f5b369&city_name=Los%20Angeles,CA');
+    const response = await axios.get('https://api.hgbrasil.com/weather?key={SUA KEY}&city_name=');
     const data = response.data.results;
     
     const sampWeather = CLOUD_MAP[data.condition_slug] || 1; 
@@ -29,4 +29,4 @@ app.get('/weather-sync', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => console.log(`API Rodando na porta ${PORT}`));
+app.listen(PORT, () => console.log(`[API de Climas] Start API in Port: ${PORT}`));
